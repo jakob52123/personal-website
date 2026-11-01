@@ -35,11 +35,15 @@ test("puts client IP work first, then experience, own IP, about and contact", as
   const order = ["ip", "experience", "own", "about", "contact"].map(id => html.indexOf(`id="${id}"`));
   assert.ok(order.every(index => index > 0), `Missing chapter: ${order}`);
   assert.deepEqual([...order].sort((a, b) => a - b), order, "Chapters must follow the job-seeking order");
-  assert.match(html, /广州拾佳文化传媒有限公司/);
+  assert.match(html, /拾佳文化/);
   assert.match(html, /山河集 Montirivers/);
-  assert.match(html, /编导主管/);
+  assert.match(html, /深圳市山河集文化有限公司/);
+  const shanheji = html.indexOf('id="shanheji"');
+  assert.ok(order[0] < shanheji && shanheji < order[1], "山河集 belongs to the client IP chapter");
   // The work-history sheet still carries rows copied from an education-IP template; none of them may leak.
   assert.doesNotMatch(html, /邢老师|升学|思维训练|教育矩阵|1950w|1950 ?万|夫妻演员|心理咨询/);
+  // Nothing from that project-summary sheet is used until it is confirmed: no figures, titles or tool lists.
+  assert.doesNotMatch(html, /编导主管|编导组|172(?:<span>)?万|158 ?万|直播 ?GMV|千赞率|3000 ?万|15 → 30|脚本智能体|剧情生活 vlog|短视频商单|广州拾佳文化传媒有限公司|内容 ?SOP|SOP 搭建|Heygen|GPT-SoVITS/);
 });
 
 test("internal navigation resolves and published photos exist", async () => {

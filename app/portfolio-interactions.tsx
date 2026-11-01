@@ -55,7 +55,7 @@ export function PortfolioInteractions() {
     window.addEventListener("resize", queueReadingUpdate, { passive: true, signal: listeners.signal });
     updateReading();
 
-    const revealSelector = ".section-kicker,.display-title,.about-grid,.ip-notebook-case,.case-meta,.ip-kpi article,.ip-kpi-minor,.content-mix,.ip-positioning,.ip-account-matrix article,.ip-work-heading,.ip-fashion-collage,.ip-work-note-wrap,.ip-duties article,.ip-review,.exp-timeline li,.exp-subhead,.workflow-proof,.own-subnav,.own-project-copy,.account-collage-wrap,.lookbook,.notes-heading,.note-card-grid>a,.shop-project,.shanheji-project,.workflow-list article,.support-intro,.support-cards article,.toolbox-heading,.toolbox-shelf-label,.tool-card,.toolbox-footnote,.contact-layout,.footer-line";
+    const revealSelector = ".section-kicker,.display-title,.about-grid,.ip-notebook-case,.case-meta,.ip-positioning,.ip-account-matrix article,.ip-work-heading,.ip-fashion-collage,.ip-work-note-wrap,.ip-duties article,.ip-review,.exp-timeline li,.exp-subhead,.own-subnav,.own-project-copy,.account-collage-wrap,.lookbook,.notes-heading,.note-card-grid>a,.shop-project,.shanheji-project,.workflow-list article,.support-intro,.support-cards article,.toolbox-heading,.toolbox-shelf-label,.tool-card,.toolbox-footnote,.contact-layout,.footer-line";
     // Reveal independent blocks, never both a block and its descendants.
     const revealElements = Array.from(document.querySelectorAll<HTMLElement>(revealSelector))
       .filter(element => !element.parentElement?.closest(revealSelector));

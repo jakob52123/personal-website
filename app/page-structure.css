@@ -7,27 +7,7 @@
 .case-meta dt{font-size:9px;letter-spacing:1.3px;color:#a99a96;margin-bottom:7px}
 .case-meta dd{margin:0;font-size:13px;line-height:1.6;color:#eee5d9}
 
-/* 01-B · 任职期间的数据 */
-.ip-kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:18px}
-.ip-kpi article{border:1px solid #786967;border-radius:17px;padding:22px 20px 20px;display:flex;flex-direction:column;min-height:158px}
-.ip-kpi article:first-child{background:var(--pink);border-color:var(--pink);color:var(--ink)}
-.ip-kpi-label{font-size:10px;color:#b4a6a6;letter-spacing:.3px}
-.ip-kpi article:first-child .ip-kpi-label,.ip-kpi article:first-child small{color:#6b5458}
-.ip-kpi-value{margin-top:auto;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px}
-.ip-kpi-value small{font-size:13px;color:#bcb2a9;display:inline-flex;gap:8px}
-.ip-kpi-value b{font-size:46px;font-weight:600;color:var(--pink);letter-spacing:-1.5px;line-height:1.15}
-.ip-kpi article:first-child .ip-kpi-value b{color:var(--ink)}
-.ip-kpi-value b>span{font-size:13px;font-weight:400;letter-spacing:0;margin-left:3px}
-.ip-kpi-note{font-size:10px;color:#bcb2a9;margin-top:4px}
-.ip-kpi-minor{display:flex;flex-wrap:wrap;list-style:none;margin:14px 0 0;padding:0;border-top:1px solid #3d3a38;border-bottom:1px solid #3d3a38}
-.ip-kpi-minor li{display:flex;align-items:baseline;gap:10px;font-size:11px;color:#bcb2a9;padding:13px 26px 13px 0;margin-right:26px;border-right:1px solid #3d3a38}
-.ip-kpi-minor li:last-child{border-right:0;margin-right:0}
-.ip-kpi-minor b{font-size:16px;font-weight:500;color:var(--pink)}
 .matrix-heading{margin-top:46px}
-.content-mix{display:flex;gap:3px;margin:-6px 0 16px}
-.content-mix>span{flex-basis:0;min-width:max-content;display:flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid #786967;border-radius:999px;font-size:10px;color:#c6bdb4}
-.content-mix>span:first-child{background:#3a2f31;border-color:#9d7b85;color:#f3e6e9}
-.content-mix b{font-weight:600;color:var(--pink)}
 
 /* 01-D · 我做了什么 */
 .duties-heading{margin:44px 0 17px}
@@ -70,10 +50,6 @@
 .exp-subhead>span{font-size:9px;letter-spacing:1.3px;color:#a99a96}
 .step-tools{display:block;margin-top:12px;font-size:10px;line-height:1.7;color:var(--pink);opacity:.85}
 .experience-section .workflow-list{margin-bottom:26px}
-.workflow-proof{display:flex;align-items:center;gap:22px;padding:18px 24px;border:1px dashed #786967;border-radius:18px}
-.workflow-proof b{font-size:34px;font-weight:600;color:var(--pink);letter-spacing:-1px;white-space:nowrap}
-.workflow-proof b>span{font-size:12px;font-weight:400;margin-left:6px;letter-spacing:0}
-.workflow-proof>span{font-size:12px;line-height:1.8;color:#c6bdb4}
 .experience-section .support-cards article{min-height:150px}
 
 /* 03 · 我自己的账号 */
@@ -88,13 +64,18 @@
 .own-block-title>span{display:block;font-size:10px;font-weight:400;letter-spacing:2px;margin-top:9px;color:#ad9b9d}
 .shanheji-tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0}
 .shanheji-tags li{border:1px solid #786967;border-radius:999px;padding:5px 12px;font-size:10px;color:#d5cbc1}
-.shanheji-stats b>span{font-size:16px}
+
+/* 01-B · 山河集品牌号 */
+.projects .shanheji-project{margin-top:72px;align-items:start}
+.shanheji-meta{margin:0;border-top:1px solid #56514e}
+.shanheji-meta>div{display:grid;grid-template-columns:72px minmax(0,1fr);gap:16px;padding:13px 0;border-bottom:1px solid #3d3a38}
+.shanheji-meta dt{font-size:9px;letter-spacing:1.3px;color:#a99a96;padding-top:3px}
+.shanheji-meta dd{margin:0;font-size:13px;line-height:1.6;color:#eee5d9}
 
 @media(max-width:1100px){
  .case-meta{grid-template-columns:repeat(3,minmax(0,1fr))}
  .case-meta>div:nth-child(4){padding-left:0;border-left:0}
  .case-meta>div:nth-child(n+4){border-top:1px solid #3d3a38}
- .ip-kpi{grid-template-columns:repeat(2,minmax(0,1fr))}
  .ip-duties{grid-template-columns:repeat(2,minmax(0,1fr))}
  .exp-timeline li{grid-template-columns:130px minmax(0,1fr) auto 28px;gap:18px}
 }
@@ -103,13 +84,6 @@
  .case-meta>div,.case-meta>div+div{padding:12px 10px 11px 0;border-left:0}
  .case-meta>div:nth-child(n+3){border-top:1px solid #3d3a38}
  .case-meta dd{font-size:12px}
- .ip-kpi{gap:8px}
- .ip-kpi article{padding:16px 14px;min-height:128px;border-radius:15px}
- .ip-kpi-value b{font-size:32px}
- .ip-kpi-value small{font-size:11px}
- .ip-kpi-minor li{padding:10px 14px 10px 0;margin-right:14px}
- .content-mix{flex-wrap:wrap}
- .content-mix>span{flex-basis:auto}
  .ip-duties{grid-template-columns:1fr;gap:8px}
  .ip-duties article{padding:18px}
  .ip-review-title{font-size:17px}
@@ -122,8 +96,9 @@
  .exp-subhead{margin:44px 0 18px;flex-direction:column;gap:6px}
  .exp-subhead h3{font-size:22px}
  .step-tools{grid-column:2;margin-top:0}
- .workflow-proof{flex-direction:column;align-items:flex-start;gap:6px;padding:16px 18px}
  .own-subnav{margin:-6px 0 26px;gap:6px}
  .own-subnav a{padding:8px 13px;font-size:11px}
  .own-block-title{font-size:26px}
+ .projects .shanheji-project{margin-top:48px}
+ .shanheji-meta dd{font-size:12px}
 }

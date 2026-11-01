@@ -28,7 +28,7 @@ export function IpSelectedWork() {
         </filter>
       </defs>
     </svg>
-    <div className="ip-work-topline"><span>01-C / SELECTED WORK</span><span>FOR LIANGLIANG</span></div>
+    <div className="ip-work-topline"><span>01-A / SELECTED WORK</span><span>FOR LIANGLIANG</span></div>
     <header className="ip-work-heading"><div><p>为她做的穿搭内容</p><h4 id="ip-work-title">Style in Focus</h4></div><span>从选品搭配，到内容剪辑。<br/>把每一种风格，放进同一个镜头。</span></header>
 
     <div className="ip-work-layout">
