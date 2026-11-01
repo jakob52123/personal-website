@@ -50,6 +50,8 @@
 .ip-review .ip-review-grid{padding:4px 0 6px}
 .ip-review .ip-report-footer{margin:18px 0 22px}
 .ip-report-link{display:inline-block;margin-top:18px}
+.ip-report-links{display:flex;flex-wrap:wrap;gap:6px 28px;margin-top:18px}
+.ip-report-links .ip-report-link{margin-top:0}
 
 /* 02 · 工作经历 */
 .exp-timeline{list-style:none;margin:0;padding:0;border-top:1px solid #56514e}

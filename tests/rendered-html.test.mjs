@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { access } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
 async function render() {
@@ -51,4 +51,12 @@ test("internal navigation resolves and published photos exist", async () => {
   const sources = new Set([...html.matchAll(/\bsrc="(\/new-document\/[^"?]+)"/g)].map(match => match[1]));
   assert.equal(sources.size, 6, "The portfolio uses the document images and the supplied About portrait");
   for (const source of sources) await access(new URL(`../public${source}`, import.meta.url));
+});
+
+test("links the three-post breakdown page shipped under public/cases", async () => {
+  const html = await render();
+  assert.match(html, /href="(?:\/personal-website)?\/cases\/liangliang-breakdown\.html"/);
+  const page = await readFile(new URL("../public/cases/liangliang-breakdown.html", import.meta.url), "utf8");
+  assert.match(page, /<title>爆款拆解 · 詹依娜<\/title>/);
+  assert.doesNotMatch(page, /邢老师|升学|思维训练|教育矩阵|1950w|1950 ?万|夫妻演员|心理咨询/);
 });

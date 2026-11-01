@@ -1,6 +1,9 @@
+import { assetPath } from "./asset-path";
 import { IpSelectedWork } from "./ip-selected-work";
 
 const reportUrl = "https://zhanyina1205-ai.github.io/liangliang-ip-report/";
+// 三篇小红书爆款的拆解页是独立的静态页面，放在 public/cases 下。
+const breakdownUrl = assetPath("/cases/liangliang-breakdown.html");
 
 const accounts = [
   { platform: "抖音 · 美妆主号", name: "是亮亮", followers: "199.4", unit: "万", purpose: "美妆教程、发型、好物与 vlog" },
@@ -65,6 +68,9 @@ export function IpCaseContext() {
       </div>
       <div className="ip-report-footer"><p className="source-note">播放样本：2026.09.04—10.09；增长指标按报告月度口径。以上为我做的复盘判断，不代表个人增长业绩，也未据此确定涨粉原因。</p></div>
     </details>
-    <a className="underlined-link ip-report-link" href={reportUrl} target="_blank" rel="noopener noreferrer">查看我做的完整 IP 项目报告 ↗</a>
+    <div className="ip-report-links">
+      <a className="underlined-link ip-report-link" href={reportUrl} target="_blank" rel="noopener noreferrer">查看我做的完整 IP 项目报告 ↗</a>
+      <a className="underlined-link ip-report-link" href={breakdownUrl} target="_blank" rel="noopener noreferrer">三篇小红书爆款拆解 ↗</a>
+    </div>
   </div>;
 }
