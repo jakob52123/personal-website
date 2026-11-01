@@ -71,6 +71,8 @@
 .shanheji-meta>div{display:grid;grid-template-columns:72px minmax(0,1fr);gap:16px;padding:13px 0;border-bottom:1px solid #3d3a38}
 .shanheji-meta dt{font-size:9px;letter-spacing:1.3px;color:#a99a96;padding-top:3px}
 .shanheji-meta dd{margin:0;font-size:13px;line-height:1.6;color:#eee5d9}
+.shanheji-link{display:inline-block;margin-top:22px}
+.own-case-link{display:table;margin-top:20px}
 
 @media(max-width:1100px){
  .case-meta{grid-template-columns:repeat(3,minmax(0,1fr))}

@@ -57,10 +57,22 @@ test("internal navigation resolves and published photos exist", async () => {
   for (const source of sources) await access(new URL(`../public${source}`, import.meta.url));
 });
 
-test("links the three-post breakdown page shipped under public/cases", async () => {
+// Standalone case pages shipped under public/cases and linked from the home page.
+const casePages = [
+  ["liangliang-breakdown.html", /<title>爆款拆解 · 詹依娜<\/title>/],
+  ["liangliang-xinjiang-script.html"],
+  ["liangliang-audience.html"],
+  ["shanheji-case.html"],
+  ["yenai-account.html"],
+];
+
+test("links every case page shipped under public/cases", async () => {
   const html = await render();
-  assert.match(html, /href="(?:\/personal-website)?\/cases\/liangliang-breakdown\.html"/);
-  const page = await readFile(new URL("../public/cases/liangliang-breakdown.html", import.meta.url), "utf8");
-  assert.match(page, /<title>爆款拆解 · 詹依娜<\/title>/);
-  assert.doesNotMatch(page, /邢老师|升学|思维训练|教育矩阵|1950w|1950 ?万|夫妻演员|心理咨询/);
+  for (const [file, title = /<title>[^<]+<\/title>/] of casePages) {
+    const href = new RegExp(`href="(?:/personal-website)?/cases/${file.replaceAll(".", "\\.")}"`);
+    assert.match(html, href, `Missing link to ${file}`);
+    const page = await readFile(new URL(`../public/cases/${file}`, import.meta.url), "utf8");
+    assert.match(page, title, `${file} needs a title`);
+    assert.doesNotMatch(page, /邢老师|升学|思维训练|教育矩阵|1950w|1950 ?万|夫妻演员|心理咨询|编导主管|Claude/, file);
+  }
 });
