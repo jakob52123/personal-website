@@ -8,12 +8,13 @@ import "./account-collage.css";
 import "./note-cards.css";
 import "./toolbox.css";
 import "./ip-selected-work.css";
+import "./page-structure.css";
 import { assetPath } from "./asset-path";
 
 export const metadata: Metadata = {
   icons: { icon: assetPath("/favicon.svg") },
   title: "詹依娜 · 个人作品集",
-  description: "詹依娜的个人作品集：IP 穿搭账号商务对接、选品搭配和剪辑经历，个人穿搭账号「椰奶没喝饱_」以及饰品店铺「摇滚椰奶冻」。内容来自新版个人文档。",
+  description: "詹依娜的个人作品集：服务 IP 是亮亮 / 涂芷靓的编导经历、山河集品牌号的编导主管经历，以及个人穿搭账号「椰奶没喝饱_」和饰品店铺「摇滚椰奶冻」。",
 };
 
 export default function RootLayout({

@@ -10,7 +10,27 @@ import { IpNotebook } from "./ip-notebook";
 import { PortfolioInteractions, CopyEmail } from "./portfolio-interactions";
 
 const documentUrl="https://my.feishu.cn/wiki/O6kZwoRPLiphBykwHiKcOgbTnld?from=from_copylink";
-const workflow=[{title:"选题",text:"找热门笔记作为参考依据。"},{title:"选品搭配",text:"参考热门单品，搭配成自己的风格。"},{title:"拍摄",text:"对镜拍、支架前置拍、户外拍。"},{title:"修图剪辑",text:"使用剪映、Remotion 完成内容制作。"},{title:"发布",text:"发布到小红书、抖音。"}];
+// 工作经历按时间倒序；数据来自本人「工作经历」文档的项目梳理表。
+const experience=[
+ {time:"2026.06 — 2026.09",title:"山河集 Montirivers",org:"深圳市山河集文化有限公司 · 黄金珠宝品牌号",role:"编导主管",text:"0→1 冷启动：搭建内容生产 SOP、编导管理体系和 AI 脚本智能体。",href:"#shanheji"},
+ {time:"2024.10 — 2025.09",title:"是亮亮 / 涂芷靓",org:"广州拾佳文化传媒有限公司 · 穿搭美妆 IP",role:"编导",text:"负责是亮亮的穿搭内容，以及穿搭小号的选题、商务、搭配和拍摄剪辑。",href:"#ip"},
+ {time:"2023.06 — 至今",title:"椰奶没喝饱_",org:"个人小红书穿搭账号",role:"独立运营",text:"大三开始独立运营：内容选题、商务对接、拍摄剪辑和出镜。",href:"#own-account"},
+];
+const workflow=[
+ {title:"选题",text:"参考热门笔记和对标账号，每周开选题会。",tools:"小红书 · 抖音"},
+ {title:"脚本与搭配",text:"写脚本、做选品搭配，用 AI 脚本智能体辅助出稿。",tools:"Claude Code · Cursor"},
+ {title:"拍摄",text:"对镜拍、支架前置拍、户外拍，统筹拍摄现场。",tools:"拍摄统筹"},
+ {title:"剪辑制作",text:"剪辑成片；数字人、声音克隆和 AI 生图补充素材。",tools:"剪映 · Remotion · Heygen · GPT-SoVITS · 即梦"},
+ {title:"发布复盘",text:"发布到小红书、抖音；每日直播复盘，每周数据复盘。",tools:"抖加投流"},
+];
+const strengths=[
+ {title:"内容策划",text:<>选题、脚本<br/>IP 定位与人设</>},
+ {title:"商务对接",text:<>品牌 PR<br/>短视频商单</>},
+ {title:"选品搭配",text:<>服装与饰品<br/>造型搭配</>},
+ {title:"拍摄剪辑",text:<>多种拍摄方式<br/>剪映 / Remotion</>},
+ {title:"SOP 与团队",text:<>内容生产 SOP<br/>3 人编导组管理</>},
+ {title:"AI 工作流",text:<>脚本智能体<br/>数字人 / 声音克隆</>},
+];
 
 export default function Home(){return <>
  <YenaiIntro/>
@@ -18,7 +38,7 @@ export default function Home(){return <>
  <PortfolioInteractions/>
  <a className="skip-link" href="#main">跳到主要内容</a>
  <div className="site-canvas" id="top">
-  <header className="site-header"><a href="#top" className="wordmark">詹依娜<span>YINA ZHAN</span></a><nav aria-label="主导航"><a href="#about">关于我</a><a href="#projects">我的作品</a><a href="#workflow">创作流程</a><a href="#tools">小工具</a><a href="#contact" className="contact-pill">联系我 ↗</a></nav></header>
+  <header className="site-header"><a href="#top" className="wordmark">詹依娜<span>YINA ZHAN</span></a><nav aria-label="主导航"><a href="#ip">服务的 IP</a><a href="#experience">工作经历</a><a href="#own">我的账号</a><a href="#about">关于我</a><a href="#contact" className="contact-pill">联系我 ↗</a></nav></header>
   <main id="main">
    <section className="hero" aria-labelledby="hero-title">
     <div className="hero-label"><span>PERSONAL PORTFOLIO</span><span>CONTENT / STYLE / IP</span></div>
@@ -27,33 +47,47 @@ export default function Home(){return <>
      <div className="paper-layer paper-back-one" aria-hidden="true"/><div className="paper-layer paper-back-two" aria-hidden="true"/>
      <div className="front-sheet"><div className="paper-holes" aria-hidden="true"><i/><i/><i/></div><span className="sheet-index">YINA / PERSONAL FILE 001</span>
       <figure className="portrait-card"><span className="paperclip" aria-hidden="true"/><div className="portrait-image"><img src={assetPath("/new-document/portrait-cover-clean.png")} alt="詹依娜的人像照片" width={1254} height={1254} fetchPriority="high"/></div><figcaption>詹依娜 <span>也可以叫我椰奶</span></figcaption></figure>
-      <div className="sheet-copy"><p>Zhan YIna</p><span>广州美术学院 · 产品设计专业<br/>个人作品集</span><div className="sheet-rule"/><small>商务对接 / 选品搭配 / 拍摄剪辑</small></div>
+      <div className="sheet-copy"><p>Zhan YIna</p><span>求职意向 · IP 编导 / 内容策划<br/>穿搭 · 美妆 · 品牌内容</span><div className="sheet-rule"/><small>选题策划 / 商务对接 / 拍摄剪辑 / SOP 搭建</small></div>
      </div>
     </div>
-    <div className="hero-footer"><span>ZHAN YINA<br/><small>广东 · 深圳</small></span><a href="#about" className="scroll-prompt">OPEN MY FILE <span>↓</span></a><span>2026<br/><small>PORTFOLIO</small></span></div>
+    <div className="hero-footer"><span>ZHAN YINA<br/><small>广东 · 深圳</small></span><a href="#ip" className="scroll-prompt">OPEN MY FILE <span>↓</span></a><span>2026<br/><small>PORTFOLIO</small></span></div>
    </section>
 
-   <section className="about-file" id="about" aria-labelledby="about-title">
-    <div className="folder-tabs"><a href="#about" aria-current="location">关于我 <span>01</span></a><a href="#projects">我的作品 <span>02</span></a><a href="#workflow">创作流程 <span>03</span></a></div>
-    <div className="folder-body"><div className="file-heading"><span>ABOUT ME</span><span>个人档案 / 01</span></div><div className="about-grid"><figure className="about-portrait"><span className="binder-clip" aria-hidden="true"/><DocumentMedia src="/new-document/about-portrait-dog.jpg" alt="詹依娜与小狗的合照" className="about-photo"/><figcaption>HI, I&apos;M YINA.<span className="about-photo-hint">点开看原图 ↗</span></figcaption></figure><div className="about-copy"><p className="eyebrow">你好，欢迎认识我。</p><h2 id="about-title">詹依娜<span>椰奶 / YINA</span></h2><dl className="personal-facts"><div><dt>年龄</dt><dd>23 岁</dd></div><div><dt>籍贯</dt><dd>广东深圳</dd></div><div><dt>教育背景</dt><dd>广州美术学院<br/><span>产品设计专业</span></dd></div></dl><div className="personal-tags"><span>INFP</span><span>手工绘画爱好者</span><span>两只小狗的全职铲屎官</span></div><p className="about-summary">有 IP 穿搭账号的商务对接、选品搭配与剪辑经历，<br className="desktop-break"/>也独立经营自己的穿搭账号与饰品店铺。</p><a className="underlined-link" href={documentUrl} target="_blank" rel="noopener noreferrer">阅读我的个人文档 ↗</a></div></div></div>
-   </section>
-
-   <section className="projects section-pad" id="projects" aria-labelledby="projects-title">
-    <div className="section-kicker"><span>02 / SELECTED WORK</span><span>IP 项目 · 个人账号</span></div><h2 id="projects-title" className="display-title">我的作品<span>SELECTED WORK</span></h2>
+   <section className="projects section-pad" id="ip" aria-labelledby="ip-title">
+    <div className="section-kicker"><span>01 / CLIENT IP</span><span>曾服务的 IP · 是亮亮 × 涂芷靓</span></div><h2 id="ip-title" className="display-title">我服务过的 IP<span>CLIENT WORK</span></h2>
+    <dl className="case-meta"><div><dt>公司</dt><dd>广州拾佳文化传媒有限公司</dd></div><div><dt>时间</dt><dd>2024.10 — 2025.09 · 11 个月</dd></div><div><dt>岗位</dt><dd>编导</dd></div><div><dt>平台</dt><dd>抖音 + 小红书</dd></div><div><dt>赛道</dt><dd>美妆 / 穿搭 / 生活好物</dd></div></dl>
     <IpNotebook/>
     <IpCaseContext/>
+   </section>
 
+   <section className="experience-section section-pad" id="experience" aria-labelledby="experience-title">
+    <div className="section-kicker"><span>02 / EXPERIENCE</span><span>工作经历 · 流程 · 职责</span></div><h2 className="display-title" id="experience-title">工作经历<span>WORK EXPERIENCE</span></h2>
+    <ol className="exp-timeline">{experience.map(item=><li key={item.title}><span className="exp-time">{item.time}</span><div className="exp-main"><h3>{item.title}<span>{item.org}</span></h3><p>{item.text}</p></div><span className="exp-role">{item.role}</span><a className="exp-link" href={item.href} aria-label={`查看${item.title}`}>↗</a></li>)}</ol>
+    <div className="exp-subhead"><h3>我的工作流程</h3><span>02-A / THE PROCESS</span></div>
+    <div className="workflow-list">{workflow.map((item,index)=><article key={item.title}><span className="step-number">0{index+1}/</span><h3>{item.title}</h3><p>{item.text}</p><small className="step-tools">{item.tools}</small>{index<workflow.length-1&&<span className="step-arrow" aria-hidden="true">→</span>}</article>)}</div>
+    <p className="workflow-proof"><b>15 → 30<span>条 / 月</span></b><span>在山河集搭建内容 SOP 和 AI 脚本智能体之后，月产能翻倍。</span></p>
+    <div className="exp-subhead"><h3>我擅长的职责</h3><span>02-B / WHAT I DO</span></div>
+    <div className="support-grid"><div className="support-intro"><p>从 IP 账号到品牌号，<br/>这些是我实际负责过的工作。</p><a href="#ip">回看服务的 IP <span>↗</span></a></div><div className="support-cards">{strengths.map((item,index)=><article key={item.title}><span>{index+1}/</span><h3>{item.title}</h3><p>{item.text}</p></article>)}</div></div>
+   </section>
 
-    <article className="own-project"><div className="own-project-copy"><p className="eyebrow">02 / MY OWN ACCOUNT</p><h3>椰奶没喝饱_<span>小红书穿搭账号</span></h3><div className="style-journey"><div><span>学生时期</span><h4>美式甜心辣妹</h4><p>以学生党人设为主。</p></div><span className="journey-arrow" aria-hidden="true">↘</span><div><span>毕业之后</span><h4>姐系通勤感</h4><p>面向刚步入社会的女生，提升穿衣质感。</p></div></div><dl className="account-stats"><div><dt>粉丝</dt><dd>5.2<span>万</span></dd></div><div><dt>获赞与收藏</dt><dd>92.4<span>万</span></dd></div></dl><p className="source-note">以上为新文档所附主页截图中的数据。</p><a className="pink-button" href="https://xhslink.cn/o/ArBwd7GjccM" target="_blank" rel="noopener noreferrer">打开我的穿搭账号 <span>↗</span></a></div><AccountCollage/></article>
+   <section className="own-section section-pad" id="own" aria-labelledby="own-title">
+    <div className="section-kicker"><span>03 / MY OWN IP</span><span>个人账号 · 商业变现 · 小工具 · 品牌号</span></div><h2 id="own-title" className="display-title">我自己的账号<span>MY OWN IP</span></h2>
+    <nav className="own-subnav" aria-label="个人项目目录"><a href="#own-account"><span>00</span>椰奶没喝饱_</a><a href="#own-business"><span>A</span>商业变现</a><a href="#tools"><span>B</span>小工具</a><a href="#shanheji"><span>C</span>品牌号 · 山河集</a></nav>
+    <article className="own-project" id="own-account"><div className="own-project-copy"><p className="eyebrow">03 / MY OWN ACCOUNT · 2023.06 — 至今</p><h3>椰奶没喝饱_<span>小红书穿搭账号</span></h3><div className="style-journey"><div><span>学生时期</span><h4>美式甜心辣妹</h4><p>以学生党人设为主。</p></div><span className="journey-arrow" aria-hidden="true">↘</span><div><span>毕业之后</span><h4>姐系通勤感</h4><p>面向刚步入社会的女生，提升穿衣质感。</p></div></div><dl className="account-stats"><div><dt>粉丝</dt><dd>5.2<span>万</span></dd></div><div><dt>获赞与收藏</dt><dd>92.4<span>万</span></dd></div></dl><p className="source-note">以上为新文档所附主页截图中的数据。</p><a className="pink-button" href="https://xhslink.cn/o/ArBwd7GjccM" target="_blank" rel="noopener noreferrer">打开我的穿搭账号 <span>↗</span></a></div><AccountCollage/></article>
     <Lookbook/>
     <NoteCards/>
 
-    <article className="shop-project"><div><p className="eyebrow">03 / MY LITTLE BUSINESS</p><h3>摇滚椰奶冻<span>朋克、辣妹风格的平价项链店铺</span></h3><p>从选品、供应链对接、定价、上架和运营，到带货笔记的拍摄剪辑，均由我独立完成。</p><a className="underlined-link" href="https://xhslink.cn/o/7fHIjh5lHki" target="_blank" rel="noopener noreferrer">逛逛我的饰品店铺 ↗</a></div><div className="shop-stats"><div><b>5,000<span>+</span></b><span>一年累计销售 / 单</span></div><div><b>10<span>万+</span></b><span>销售额 / 元</span></div></div></article>
+    <article className="shop-project" id="own-business"><div><p className="eyebrow">03-A / 商业变现</p><h3>摇滚椰奶冻<span>朋克、辣妹风格的平价项链店铺</span></h3><p>从选品、供应链对接、定价、上架和运营，到带货笔记的拍摄剪辑，均由我独立完成。</p><a className="underlined-link" href="https://xhslink.cn/o/7fHIjh5lHki" target="_blank" rel="noopener noreferrer">逛逛我的饰品店铺 ↗</a></div><div className="shop-stats"><div><b>5,000<span>+</span></b><span>一年累计销售 / 单</span></div><div><b>10<span>万+</span></b><span>销售额 / 元</span></div></div></article>
+
+    <Toolbox/>
+
+    <article className="shop-project shanheji-project" id="shanheji" aria-labelledby="shanheji-title"><div className="shanheji-copy"><p className="eyebrow">03-C / 品牌账号 · 2026.06 — 2026.09</p><h3 id="shanheji-title">山河集 Montirivers<span>深圳市山河集文化有限公司 · 黄金珠宝 · 小红书</span></h3><p>接手时账号没有内容、没有团队、也没有 SOP。我以编导主管的身份带领 3 人编导组（含自己），从 0 搭起内容生产 SOP、编导管理体系和 AI 脚本智能体，把线上内容引流到线下门店。</p><ul className="shanheji-tags"><li>编导主管</li><li>0→1 冷启动</li><li>内容 SOP</li><li>AI 脚本智能体</li></ul></div><div className="shop-stats shanheji-stats"><div><b>2k<span>+</span></b><span>粉丝 / 接手时 500+</span></div><div><b>15<span>→ 30</span></b><span>月产能 / 条</span></div></div></article>
    </section>
 
-   <section className="workflow-section section-pad" id="workflow" aria-labelledby="workflow-title"><div className="section-kicker"><span>03 / HOW I WORK</span><span>从选题，到发布</span></div><h2 className="display-title" id="workflow-title">我的创作流程<span>THE PROCESS</span></h2><div className="workflow-list">{workflow.map((item,index)=><article key={item.title}><span className="step-number">0{index+1}/</span><h3>{item.title}</h3><p>{item.text}</p>{index<workflow.length-1&&<span className="step-arrow" aria-hidden="true">→</span>}</article>)}</div><div className="support-grid"><div className="support-intro"><p>从品牌合作到个人创作，<br/>这些是我实际做过的工作。</p><a href="#projects">回看我的项目 <span>↗</span></a></div><div className="support-cards"><article><span>1/</span><h3>商务对接</h3><p>IP 穿搭账号<br/>PR 合作沟通</p></article><article><span>2/</span><h3>选品搭配</h3><p>服装与饰品<br/>选品、风格搭配</p></article><article><span>3/</span><h3>拍摄剪辑</h3><p>多种拍摄方式<br/>剪映 / Remotion</p></article><article><span>4/</span><h3>独立经营</h3><p>个人账号与店铺<br/>供应链、定价、上架</p></article></div></div></section>
-
-   <Toolbox/>
+   <section className="about-file" id="about" aria-labelledby="about-title">
+    <div className="folder-tabs"><a href="#about" aria-current="location">关于我 <span>04</span></a><a href="#contact">联系我 <span>05</span></a></div>
+    <div className="folder-body"><div className="file-heading"><span>ABOUT ME</span><span>个人档案 / 04</span></div><div className="about-grid"><figure className="about-portrait"><span className="binder-clip" aria-hidden="true"/><DocumentMedia src="/new-document/about-portrait-dog.jpg" alt="詹依娜与小狗的合照" className="about-photo"/><figcaption>HI, I&apos;M YINA.<span className="about-photo-hint">点开看原图 ↗</span></figcaption></figure><div className="about-copy"><p className="eyebrow">你好，欢迎认识我。</p><h2 id="about-title">詹依娜<span>椰奶 / YINA</span></h2><dl className="personal-facts"><div><dt>年龄</dt><dd>23 岁</dd></div><div><dt>籍贯</dt><dd>广东深圳</dd></div><div><dt>教育背景</dt><dd>广州美术学院<br/><span>产品设计专业</span></dd></div></dl><div className="personal-tags"><span>INFP</span><span>手工绘画爱好者</span><span>两只小狗的全职铲屎官</span></div><p className="about-summary">做过 IP 穿搭账号的编导和品牌号的编导主管，<br className="desktop-break"/>也独立经营自己的穿搭账号与饰品店铺。</p><a className="underlined-link" href={documentUrl} target="_blank" rel="noopener noreferrer">阅读我的个人文档 ↗</a></div></div></div>
+   </section>
 
    <section className="contact section-pad" id="contact" aria-labelledby="contact-title"><div className="section-kicker"><span>05 / SAY HELLO</span><span>期待与你交流</span></div><div className="contact-layout"><div><h2 id="contact-title">下一次，<br/>一起做点好内容。</h2><a className="email-link" href="mailto:1106731983@qq.com">1106731983@qq.com <span>↗</span></a><CopyEmail email="1106731983@qq.com"/></div><div className="contact-mark" aria-hidden="true"><span>Y</span><span>✦</span></div></div><div className="footer-line"><a href="#top">詹依娜 / YINA ZHAN</a><p>© 2026 · 个人作品集</p><a href="#top">回到顶部 ↑</a></div></section>
   </main>

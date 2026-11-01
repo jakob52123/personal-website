@@ -28,7 +28,7 @@ export function IpSelectedWork() {
         </filter>
       </defs>
     </svg>
-    <div className="ip-work-topline"><span>YINA / SELECTED WORK 01</span><span>FOR LIANGLIANG</span></div>
+    <div className="ip-work-topline"><span>01-C / SELECTED WORK</span><span>FOR LIANGLIANG</span></div>
     <header className="ip-work-heading"><div><p>为她做的穿搭内容</p><h4 id="ip-work-title">Style in Focus</h4></div><span>从选品搭配，到内容剪辑。<br/>把每一种风格，放进同一个镜头。</span></header>
 
     <div className="ip-work-layout">
@@ -48,7 +48,7 @@ export function IpSelectedWork() {
           <span className="ip-work-note-open">打开完整笔记 <span aria-hidden="true">↗</span></span>
         </a>
         <p className="ip-work-data-note">互动数据采集于 2026.10.14，非实时。</p>
-        <div className="ip-work-role"><span>MY PART / 我的参与</span><p>PR 商务对接<br/>选品与造型搭配<br/>内容剪辑</p></div>
+        <div className="ip-work-role"><span>MY PART / 我的参与</span><p>选题与 PR 商务对接<br/>选品与造型搭配<br/>拍摄与剪辑</p></div>
       </aside>
     </div>
 

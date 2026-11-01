@@ -23,9 +23,8 @@ function ToolArtwork({ index }: { index: number }) {
 }
 
 export function Toolbox() {
-  return <section className="toolbox-section section-pad" id="tools" aria-labelledby="tools-title">
-    <div className="section-kicker"><span>04 / MY LITTLE TOOLBOX</span><span>小工具 · 持续更新中</span></div>
-    <div className="toolbox-heading"><div><h2 className="display-title" id="tools-title">我的小工具<span>MAKE ROOM FOR IDEAS</span></h2><p>为创作和生活，做一点好用的小东西。<br/>收好灵感，也记下日常。</p></div><span className="toolbox-script" aria-hidden="true">Little helpers.<span>✳</span></span></div>
+  return <div className="toolbox-section own-block" id="tools" role="region" aria-labelledby="tools-title">
+    <div className="toolbox-heading"><div><p className="eyebrow">03-B / 小工具 · 持续更新中</p><h3 className="own-block-title" id="tools-title">我的小工具<span>MAKE ROOM FOR IDEAS</span></h3><p>为创作和生活，做一点好用的小东西。<br/>收好灵感，也记下日常。</p></div><span className="toolbox-script" aria-hidden="true">Little helpers.<span>✳</span></span></div>
     <div className="toolbox-shelf"><div className="toolbox-shelf-label"><span>收藏一些小小的好用。</span><span>THE USEFUL LITTLE THINGS</span></div>
       <div className="toolbox-grid">{tools.map((tool, index) => {
         const contents = <><div className="tool-card-meta"><span>TOOL / {tool.id}</span><span className="tool-status">{tool.href ? "可以使用" : "即将上线"}</span></div><ToolArtwork index={index}/><div className="tool-card-copy"><h3>{tool.title}</h3><p>{tool.description}</p></div><div className="tool-card-bottom"><span>{tool.href ? "打开小工具" : "COMING SOON"}</span><span aria-hidden="true">{tool.href ? "↗" : "✧"}</span></div></>;
@@ -33,5 +32,5 @@ export function Toolbox() {
       })}</div>
       <div className="toolbox-footnote"><span>留一点好奇，等下一次更新。</span><span aria-hidden="true">with a little help & a lot of ideas.</span></div>
     </div>
-  </section>;
+  </div>;
 }

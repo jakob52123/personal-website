@@ -30,6 +30,18 @@ test("renders Yina's biography and main sections without the starter placeholder
   assert.doesNotMatch(html, /codex-preview|Building your site|react-loading-skeleton/);
 });
 
+test("puts client IP work first, then experience, own IP, about and contact", async () => {
+  const html = await render();
+  const order = ["ip", "experience", "own", "about", "contact"].map(id => html.indexOf(`id="${id}"`));
+  assert.ok(order.every(index => index > 0), `Missing chapter: ${order}`);
+  assert.deepEqual([...order].sort((a, b) => a - b), order, "Chapters must follow the job-seeking order");
+  assert.match(html, /广州拾佳文化传媒有限公司/);
+  assert.match(html, /山河集 Montirivers/);
+  assert.match(html, /编导主管/);
+  // The work-history sheet still carries rows copied from an education-IP template; none of them may leak.
+  assert.doesNotMatch(html, /邢老师|升学|思维训练|教育矩阵|1950w|1950 ?万|夫妻演员|心理咨询/);
+});
+
 test("internal navigation resolves and published photos exist", async () => {
   const html = await render();
   const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]));
